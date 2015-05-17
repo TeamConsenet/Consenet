@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -18,5 +18,52 @@
 </head>
 <body class="clearfix">
 
+
+
+
+
+
+
+
 </body>
 </html>
+<script>
+    var consenetServiceUrl = "http://52.24.70.55:8888/api/ClinicalTrials/";
+
+    var app = angular.module('consenetApp', []);
+    app.controller('consenetController', function ($scope,$http) {
+        
+
+        $scope.nextQuestion = function () {
+            $http.get(consenetServiceUrl + "GetNextQuestion")
+            .success(function (data) {
+                //TODO
+            })
+            .error(function (response) { /*TODO*/ });
+        };
+
+        $scope.postAnswer = function(answer) {
+            $http.post(trafficOnboardSitesServiceUrl + "PostAnswer", answer)
+            .success(function (data) {
+                //TODO
+            })
+            .error(function (response) { /*TODO*/ });
+        }
+
+        $scope.getFilteredClinicalTrials = function () {
+            $http.get(trafficOnboardSitesServiceUrl + "GetFilteredClinicalTrials")
+            .success(function (data) {
+                //TODO
+            })
+            .error(function (response) { /*TODO*/ });
+        }
+
+        $scope.refreshSession = function () {
+            $http.get(consenetServiceUrl + "RefreshSession")
+            .success(function (data) {
+                //TODO
+            })
+            .error(function (response) { /*TODO*/ });
+        };
+    });
+</script>
